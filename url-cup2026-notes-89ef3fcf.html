@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>专题 · 世界杯笔记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f5f1;
+      color: #2a2a2a;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      line-height: 1.7;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* hero 模块 — 窄幅杂志感 */
+    .hero {
+      margin-bottom: 3.2rem;
+    }
+
+    .hero-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8a847c;
+      margin-bottom: 0.6rem;
+      border-top: 2px solid #d4cfc7;
+      padding-top: 1.2rem;
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 550;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #1c1b1a;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1.3rem;
+      font-weight: 380;
+      color: #5b5752;
+      max-width: 85%;
+      margin-top: 0.3rem;
+    }
+
+    /* 背景说明 — 像杂志的 pullquote 区 */
+    .backdrop-note {
+      background: #ece9e3;
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 3rem;
+      border-radius: 0;
+      position: relative;
+    }
+
+    .backdrop-note::before {
+      content: "⚽";
+      position: absolute;
+      top: 1rem;
+      left: 1.2rem;
+      font-size: 1.8rem;
+      opacity: 0.25;
+    }
+
+    .backdrop-note p {
+      font-size: 1rem;
+      color: #2f2d2b;
+      margin-top: 0.3rem;
+      padding-left: 0.8rem;
+      border-left: 3px solid #c0b6aa;
+    }
+
+    .backdrop-note strong {
+      font-weight: 550;
+      color: #1f1e1c;
+    }
+
+    /* 三段正文 — 窄体、舒适间距 */
+    .essay {
+      margin-bottom: 3.5rem;
+    }
+
+    .essay section {
+      margin-bottom: 2.4rem;
+    }
+
+    .essay h2 {
+      font-size: 1.6rem;
+      font-weight: 480;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.8rem;
+      color: #1e1d1b;
+      border-bottom: 1px solid #d8d2ca;
+      padding-bottom: 0.2rem;
+    }
+
+    .essay p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .essay a {
+      color: #3c3a37;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #b8afa5;
+      transition: all 0.15s ease;
+    }
+
+    .essay a:hover {
+      text-decoration-color: #1c1b1a;
+      color: #121212;
+    }
+
+    /* 特点场景 — 极简卡片 */
+    .feature-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin: 2rem 0 2.8rem;
+    }
+
+    .feature-item {
+      background: #ffffff;
+      padding: 1.4rem 1.6rem;
+      border-left: 4px solid #d4cfc7;
+      box-shadow: 0 0 0 1px #eeebe6;
+    }
+
+    .feature-item h3 {
+      font-size: 1rem;
+      font-weight: 520;
+      margin-bottom: 0.25rem;
+      color: #1f1d1b;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #4b4844;
+    }
+
+    /* FAQ 摘要 — 窄收尾 */
+    .faq-digest {
+      margin: 2.8rem 0 2.2rem;
+      border-top: 1px solid #d8d2ca;
+      padding-top: 1.8rem;
+    }
+
+    .faq-digest h3 {
+      font-size: 1.2rem;
+      font-weight: 460;
+      margin-bottom: 1rem;
+    }
+
+    .faq-digest details {
+      margin-bottom: 0.7rem;
+      font-size: 0.95rem;
+    }
+
+    .faq-digest summary {
+      cursor: pointer;
+      font-weight: 420;
+      color: #2f2d2a;
+      padding: 0.3rem 0;
+    }
+
+    .faq-digest summary::-webkit-details-marker {
+      color: #9d948b;
+    }
+
+    .faq-digest details p {
+      margin-top: 0.3rem;
+      padding-left: 1rem;
+      color: #504c47;
+    }
+
+    /* 页尾提示 — 像是杂志的“下一期” */
+    .footer-note {
+      border-top: 2px solid #d4cfc7;
+      padding-top: 2rem;
+      margin-top: 3.2rem;
+      font-size: 0.95rem;
+      color: #5f5a54;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .footer-note .tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      background: #e2ddd6;
+      padding: 0.2rem 0.8rem;
+      color: #2c2a27;
+    }
+
+    .footer-note a {
+      color: #1e1d1b;
+      text-decoration: underline dotted 1px #9f968c;
+      text-underline-offset: 3px;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline solid;
+    }
+
+    /* 响应式 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.2rem 1rem 3rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero .sub {
+        font-size: 1.1rem;
+        max-width: 100%;
+      }
+      .backdrop-note {
+        padding: 1.6rem 1.2rem;
+      }
+      .feature-item {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- hero -->
+    <header class="hero">
+      <div class="hero-label">杂志专题 · 二〇二六</div>
+      <h1>再次回到<br>世界杯的节奏</h1>
+      <div class="sub">收藏一次赛程，等于保存一整季的期待。</div>
+    </header>
+
+    <!-- 背景说明 -->
+    <div class="backdrop-note">
+      <p><strong>为什么是「再一次」？</strong> 四年一度的世界把无数人的日历重新标注。上一届的记忆还在，新一届的悬念已经铺开。无论你是一直关注的老球迷，还是偶尔点开比分的路人，<a href="https://url-cup2026.com">世界杯</a> 总能在恰当的时候把你拉回屏幕前。这一次，我们试着用更安静的方式，把它留在收藏夹里。</p>
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <div class="essay">
+      <section>
+        <h2>收藏，是另一种参与</h2>
+        <p>很多人不会每场都看，但会记得把赛程页存起来。收藏一个链接，像是给未来几个星期埋下伏笔——某天晚上随手点开，刚好遇见一场加时，或者一个冷门。页面本身不需要太喧哗，只要信息干净、更新及时，就足够成为那个“留在手边”的角落。</p>
+      </section>
+
+      <section>
+        <h2>持续关注，但不用太用力</h2>
+        <p>世界杯的迷人之处，在于它不要求你时刻在线。你可以错过小组赛前半段，然后在淘汰赛前夕重新打开同一个页面，发现积分榜已经悄悄变了样。那种“虽然没追直播，但一切都还在”的感觉，其实比追着每一条推送更舒服。把 <a href="https://url-cup2026.com">世界杯</a> 放在浏览器的常用位，就是一种低成本的陪伴。</p>
+      </section>
+
+      <!-- 特点场景 嵌入卡片式 -->
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h3>赛程一目了然</h3>
+          <p>从揭幕战到决赛，日期、时间、对阵，不用翻来翻去。适合那些只想在关键时刻打开电视的人。</p>
+        </div>
+        <div class="feature-item">
+          <h3>收藏夹里的常客</h3>
+          <p>比起社交媒体的信息流，一个静态页面反而更可靠。下次你想确认“明天几点有比赛”时，它就在那里。</p>
+        </div>
+        <div class="feature-item">
+          <h3>不多不少</h3>
+          <p>没有弹窗，没有自动播放的视频。只有赛程、结果和必要的背景——刚好够你看完，然后去做别的事。</p>
+        </div>
+      </div>
+
+      <section>
+        <h2>页尾不是终点</h2>
+        <p>每次世界杯结束，页面会安静地停留在那里。它不催你回来，但等你某天心血来潮重新点开时，会发现下一届的倒计时已经开始。这就是持续关注的意义：不是一直盯着，而是知道它一直在。如果你也想留个位置，不妨现在就把 <a href="https://url-cup2026.com">世界杯</a> 收进书签，或者记住这个地址。以后某天，它自然会派上用场。</p>
+      </section>
+    </div>
+
+    <!-- FAQ 摘要 (轻量) -->
+    <div class="faq-digest">
+      <h3>你可能想问的</h3>
+      <details>
+        <summary>页面会更新吗？</summary>
+        <p>是的，赛程、积分和淘汰赛对阵都会在关键节点刷新。适合作为赛期的固定参考。</p>
+      </details>
+      <details>
+        <summary>需要注册或登录吗？</summary>
+        <p>不需要。页面完全公开，开箱即用。你只需要一个浏览器和稳定的网络。</p>
+      </details>
+      <details>
+        <summary>为什么推荐现在收藏？</summary>
+        <p>赛前收藏，你就不用等到比赛日再匆忙搜索。提前放进书签，到时候打开就是第一手信息。</p>
+      </details>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="footer-note">
+      <span>2026 · 持续关注中</span>
+      <span class="tag">杂志专题</span>
+      <span>如果你还没收藏：<a href="https://url-cup2026.com">世界杯</a> ← 点此保存</span>
+    </footer>
+
+    <!-- 极简装饰记号（仅作视觉变化） -->
+    <div style="margin-top: 2.8rem; font-size: 0.65rem; color: #bbb3a9; letter-spacing: 0.3em; text-align: right; border-top: 1px solid #e6e1d9; padding-top: 1.2rem;">⚽ ⚽ ⚽ · 保持节奏</div>
+  </div>
+</body>
+</html>
